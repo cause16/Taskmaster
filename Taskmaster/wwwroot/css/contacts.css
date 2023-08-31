@@ -1,0 +1,15 @@
+﻿.contact-info {
+    padding: 1em;
+    margin: 2em 1em;
+}
+
+    .contact-info h3 {
+        color: #ffffff;
+        font-size: 1.5em;
+        margin-bottom: 1em;
+    }
+
+    .contact-info p {
+        margin: 1em 0;
+        font-size: 1em;
+    }

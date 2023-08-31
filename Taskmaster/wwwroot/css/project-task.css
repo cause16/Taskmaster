@@ -1,0 +1,278 @@
+﻿/* Стилі для ефекту затемнення */
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+}
+
+/* Стилі для модального вікна */
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(32, 33, 42);
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 10000;
+    overflow: auto;
+    max-height: 100%;
+}
+
+/* project-forms */
+
+.create-project-form,
+.update-project-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0em;
+    border: 1px solid #ccc;
+    border-radius: 0.5em;
+    padding: 2em;
+    width: 25em;
+    align-items: center;
+}
+
+    .create-project-form .form-buttons,
+    .update-project-form .form-buttons {
+        margin-top: 1.5em;
+    }
+
+    .create-project-form label,
+    .update-project-form label {
+        color: #ffffffff;
+        margin-bottom: 0.2em;
+        font-weight: bold;
+    }
+
+    .create-project-form span.error,
+    .update-project-form span.error {
+        color: #e44c65;
+        font-size: 0.8em;
+        font-weight: bold;
+        margin-top: 0.3em;
+    }
+
+    .create-project-form label.error,
+    .update-project-form label.error {
+        color: #e44c65;
+        font-size: 1em;
+    }
+
+/* task-forms */
+
+.create-task-form,
+.update-task-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0em;
+    border: 1px solid #ccc;
+    border-radius: 0.5em;
+    padding: 2em;
+    width: 25em;
+    align-items: center;
+}
+
+    .create-task-form .form-group,
+    .update-task-form .form-group {
+        margin-bottom: 1em;
+        max-width: 15em;
+    }
+
+    .create-task-form .form-buttons,
+    .update-task-form .form-buttons {
+        margin-top: 0.5em;
+    }
+
+    .create-task-form label,
+    .update-task-form label {
+        color: #ffffffff;
+        margin-bottom: 0.2em;
+        font-weight: bold;
+    }
+
+#EndDate,
+#EndTime {
+    color: black;
+    font-weight: 500;
+    display: block;
+    width: 15em;
+}
+
+.create-task-form span.error,
+.update-task-form span.error {
+    color: #e44c65;
+    font-size: 0.8em;
+    font-weight: bold;
+    margin-top: 0.3em;
+}
+
+.create-task-form label.error,
+.update-task-form label.error {
+    color: #e44c65;
+    font-size: 1em;
+}
+
+/* delete-forms */
+
+.delete-project-form,
+.delete-task-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0em;
+    border: 1px solid #ccc;
+    border-radius: 0.5em;
+    padding: 2em;
+    width: 25em;
+    align-items: center;
+}
+
+/* display-settings-forms */
+
+.update-display-settings-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0em;
+    border: 1px solid #ccc;
+    border-radius: 0.5em;
+    padding: 2em;
+    width: 25em;
+}
+
+    .update-display-settings-form
+    .form-group {
+        margin-bottom: 1em;
+        margin-left: 3.3em;
+    }
+
+    .update-display-settings-form
+    .form-buttons {
+        margin-top: 0.5em;
+        margin-left: 3.1em;
+    }
+
+    .update-display-settings-form label {
+        color: #ffffffff;
+        margin-bottom: 0.2em;
+        font-weight: bold;
+    }
+
+/* project-task-container */
+
+.project-task-container {
+    height: 36em;
+    width: 100%;
+    margin: 0%;
+}
+
+    .project-task-container
+    .left-section {
+        height: 36em;
+        width: 20%;
+        display: inline-block;
+        position: absolute;
+        overflow-x: hidden;
+        overflow-y: auto;
+        background-color: rgb(32, 33, 42);
+        padding: 1em;
+    }
+
+    .project-task-container
+    .title-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .project-task-container
+    .left-section h1 {
+        margin: 0em;
+    }
+
+    .project-task-container
+    .left-section p {
+        margin: 1em 0.3em;
+        word-wrap: break-word;
+        line-height: 1em;
+    }
+
+        .project-task-container
+        .left-section p a {
+            border-bottom: none;
+        }
+
+    .project-task-container
+    .right-section {
+        height: 36em;
+        width: 80%;
+        margin-left: 20%;
+        position: absolute;
+        overflow: auto;
+        padding: 1em;
+    }
+
+    .project-task-container
+    .right-section-header {
+        display: flex;
+        align-items: center;
+    }
+
+        .project-task-container
+        .right-section-header h1 {
+            max-width: 22em;
+            word-wrap: break-word;
+        }
+
+        .project-task-container
+        .right-section-header h1 {
+            font-size: 1.5em;
+            margin: 0em;
+            margin-right: 2.5em;
+        }
+
+        .project-task-container
+        .right-section-header a {
+            margin-right: 1.2em;
+        }
+
+    .project-task-container
+    .table-wrapper {
+        margin-top: 5em;
+    }
+
+        .project-task-container
+        .table-wrapper td {
+            max-width: 14.5em;
+            word-wrap: break-word;
+        }
+
+        .project-task-container
+        .table-wrapper
+        .task-is-done {
+            border-bottom: none;
+        }
+
+        .project-task-container
+        .table-wrapper
+        .task-is-done img{
+            width: 1.3em;
+            height: 1.3em;
+        }
+
+        .project-task-container
+        .table-wrapper tbody tr td:first-child {
+            text-align: center;
+        }

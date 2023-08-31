@@ -1,0 +1,39 @@
+﻿@model Taskmaster.ViewModels.LoginViewModel
+@{
+	ViewBag.Title = "Вхід";
+}
+@section Styles {
+	<link rel="stylesheet" href="~/css/login.css">
+}
+
+<form class="login-form" method="post" asp-action="login" asp-controller="account" asp-route-returnUrl="@ViewBag.ReturnUrl">
+	<h2>Вхід</h2>
+	<div class="div-uname">
+		<label asp-for="UserName"></label>
+		<input asp-for="UserName" />
+		<span asp-validation-for="UserName" class="error username-error"></span>
+	</div>
+	<div class="div-upswrd">
+		<label asp-for="Password"></label>
+		<input asp-for="Password" />
+		<span asp-validation-for="Password" class="error password-error"></span>
+	</div>
+	<div class="div-chkbx">
+		<input asp-for="RememberMe" />
+		<label asp-for="RememberMe"></label>
+	</div>
+	<div class="div-btn">
+		<button type="submit" class="button primary small">Увійти</button>
+	</div>
+	<div class="div-a">
+		<a asp-action="registration" asp-controller="account" asp-route-returnUrl="@ViewBag.ReturnUrl">Немає акаунту?</a>
+	</div>
+	<div class="div-a">
+		<a href="@(ViewBag.ReturnUrl ?? "/")">Продовжити без входу</a>
+	</div>
+</form>
+
+@section Scripts {
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+	<script src="~/js/login-validation.js"></script>
+}

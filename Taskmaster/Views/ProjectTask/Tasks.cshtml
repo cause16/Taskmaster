@@ -1,0 +1,52 @@
+﻿@using Taskmaster.Models.Enums.Translations
+@{
+	Layout = "_Projects";
+	var selectedProjectId = ViewBag.SelectedProjectId ?? "";
+	var selectedProjectName = ViewBag.SelectedProjectName ?? "";
+	var tasks = (ViewBag.Tasks as IEnumerable<Taskmaster.ViewModels.TaskViewModel>) ??
+		Enumerable.Empty<Taskmaster.ViewModels.TaskViewModel>();
+	var culture = ViewBag.Culture as System.Globalization.CultureInfo;
+}
+
+<div class="right-section-header">
+	<h1>@selectedProjectName</h1>
+	<a class="open-create-task-modal" onclick="return false;" asp-action="create-task" asp-controller="project-task" asp-route-id="@selectedProjectId">Додати задачу</a>
+	<a class="open-update-display-settings-modal" onclick="return false;" asp-action="update-display-settings" asp-controller="project-task" asp-route-id="@selectedProjectId">Відображення</a>
+	<a class="open-update-project-modal" onclick="return false;" asp-action="update-project" asp-controller="project-task" asp-route-id="@selectedProjectId">Редагувати проєкт</a>
+	<a class="open-delete-project-modal" onclick="return false;" asp-action="delete-project" asp-controller="project-task" asp-route-id="@selectedProjectId">Видалити проєкт</a>
+</div>
+<div class="table-wrapper">
+	<table class="alt">
+		<thead>
+			<tr>
+				<th></th>
+				<th>Назва</th>
+				<th>Опис</th>
+				<th>Пріорітет</th>
+				<th>Дата виконання</th>
+				<th>Час виконання</th>
+				<th></th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var task in tasks)
+			{
+				<tr>
+					<td>
+						<a class="task-is-done" asp-action="delete-task" asp-controller="project-task" asp-route-projectId="@task.ProjectId" asp-route-id="@task.Id">
+							<img src="~/images/task.png" alt="Якщо задача виконана" />
+						</a>
+					</td>
+					<td>@task.Name</td>
+					<td>@task.Description</td>
+					<td>@(PriorityLevelTranslator.Translate(task.Priority))</td>
+					<td>@task.EndDate?.ToString("d", culture)</td>
+					<td>@task.EndTime?.ToString("t", culture)</td>
+					<td><a class="open-update-task-modal" onclick="return false;" asp-action="update-task" asp-controller="project-task" asp-route-projectId="@task.ProjectId" asp-route-id="@task.Id">Редагувати</a></td>
+					<td><a class="open-delete-task-modal" onclick="return false;" asp-action="delete-task" asp-controller="project-task" asp-route-projectId="@task.ProjectId" asp-route-id="@task.Id">Видалити</a></td>
+				</tr>
+			}
+		</tbody>
+	</table>
+</div>

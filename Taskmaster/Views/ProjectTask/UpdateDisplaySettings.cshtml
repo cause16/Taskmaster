@@ -1,0 +1,30 @@
+﻿@model Taskmaster.ViewModels.DisplaySettingsViewModel
+@{
+	Layout = null;
+}
+
+<form class="update-display-settings-form" method="post" asp-action="update-display-settings" asp-controller="project-task">
+	<input type="hidden" asp-for="ProjectId" />
+	<div class="form-group">
+		<label asp-for="SortBy"></label>
+		<select asp-for="SortBy">
+			<option value="Default">За замовчуванням</option>
+			<option value="Name">За назвою</option>
+			<option value="Priority">За пріоритетом</option>
+			<option value="DueDate">За датою завершення</option>
+		</select>
+		<span asp-validation-for="SortBy" class="error sort-by-error"></span>
+	</div>
+	<div class="form-group">
+		<label asp-for="DisplayOrder"></label>
+		<select asp-for="DisplayOrder">
+			<option value="Ascending">За зростанням</option>
+			<option value="Descending">За зменшенням</option>
+		</select>
+		<span asp-validation-for="DisplayOrder" class="error display-order-error"></span>
+	</div>
+	<div class="form-buttons">
+		<button type="submit" class="button primary small">Зберегти</button>
+		<button type="button" class="cancel button small">Скасувати</button>
+	</div>
+</form>

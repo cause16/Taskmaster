@@ -1,0 +1,26 @@
+﻿@model Taskmaster.ViewModels.CompanyDetailsViewModel
+@{
+	ViewBag.Title = "Контакти";
+}
+@section Styles {
+    <link rel="stylesheet" href="~/css/contacts.css">
+}
+
+<div class="contact-info">
+    <h3>Наші контакти</h3>
+    <div>
+        <p>Назва: @Model.Name</p>
+    </div>
+    <div>
+        <p>Номер телефону: @Model.Phone</p>
+    </div>
+    <div>
+        <p>Електронна пошта: @Model.Email</p>
+    </div>
+    <div>
+        <p>Адреса: @Model.Country, @Model.City, @Model.Street</p>
+    </div>
+    <div>
+        <p>Поштовий індекс: @Model.PostIndex</p>
+    </div>
+</div>

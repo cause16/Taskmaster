@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Taskmaster.ViewModels.ProjectViewModel>
+@{
+	Layout = "_Layout";
+	ViewBag.Title = "Мої проєкти та задачі";
+}
+@section Styles {
+	<link rel="stylesheet" href="~/css/project-task.css">
+}
+
+<div class="project-task-container">
+	<div class="left-section">
+		<div class="title-wrapper">
+			<h1>Проєкти</h1>
+			<a class="open-create-project-modal" onclick="return false;" asp-action="create-project" asp-controller="project-task">Додати</a>
+		</div>
+		@foreach (var project in Model)
+		{
+			<p>
+				<a asp-action="project" asp-controller="project-task" asp-route-id="@project.Id">@project.Name</a>
+			</p>
+		}
+	</div>
+	<div class="right-section">
+		@RenderBody()
+	</div>
+
+	<div class="overlay"></div>
+	<div class="modal"></div>
+</div>
+
+@section Scripts {
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+	<script src="~/js/project-task.js"></script>
+	<script src="~/js/project-forms.js"></script>
+	<script src="~/js/task-forms.js"></script>
+}

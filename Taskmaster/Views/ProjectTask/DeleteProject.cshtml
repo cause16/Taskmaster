@@ -1,0 +1,16 @@
+﻿@model Taskmaster.ViewModels.ProjectViewModel
+@{
+	Layout = null;
+}
+
+<form class="delete-project-form" method="post" asp-action="delete-project" asp-controller="project-task">
+	<input type="hidden" asp-for="Id" />
+	<div class="form-group">
+		<h2><b>Видалити проєкт</b></h2>
+		<p>Ви впевнені, що хочете видалити проєкт ?</p>
+	</div>
+	<div class="form-buttons">
+		<button type="submit" class="button primary small">Видалити</button>
+		<button type="button" class="cancel button small">Скасувати</button>
+	</div>
+</form>

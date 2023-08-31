@@ -1,0 +1,50 @@
+﻿@model Taskmaster.ViewModels.RegistrationViewModel
+@{
+	ViewBag.Title = "Реєстрація";
+}
+@section Styles {
+	<link rel="stylesheet" href="~/css/registration.css">
+}
+
+<form class="registration-form" method="post" asp-action="registration" asp-controller="account" asp-route-returnUrl="@ViewBag.ReturnUrl">
+	<h2>Реєстрація</h2>
+	<div>
+		<label asp-for="FirstName"></label>
+		<input asp-for="FirstName" />
+		<span asp-validation-for="FirstName" class="error fname-error"></span>
+	</div>
+	<div>
+		<label asp-for="LastName"></label>
+		<input asp-for="LastName" /> 
+		<span asp-validation-for="LastName" class="error lname-error"></span>
+	</div>
+	<div>
+		<label asp-for="Email"></label>
+		<input asp-for="Email" />
+		<span asp-validation-for="Email" class="error email-error"></span>
+	</div>
+	<div>
+		<label asp-for="Password"></label>
+		<input asp-for="Password" />
+		<span asp-validation-for="Password" class="error password-error"></span>
+	</div>
+	<div>
+		<label asp-for="ConfirmPassword"></label>
+		<input asp-for="ConfirmPassword" />
+		<span asp-validation-for="ConfirmPassword" class="error confirm-password-error"></span>
+	</div>
+	<div class="div-btn">
+		<button type="submit" class="button primary small">Зареєструватися</button>
+	</div>
+	<div class="div-a">
+		<a asp-action="login" asp-controller="account" asp-route-returnUrl="@ViewBag.ReturnUrl">Вже є акаунт?</a>
+	</div>
+	<div class="div-a">
+		<a href="@(ViewBag.ReturnUrl ?? "/")">Продовжити без реєстрації</a>
+	</div>
+</form>
+
+@section Scripts {
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+	<script src="~/js/registration-validation.js"></script>
+}

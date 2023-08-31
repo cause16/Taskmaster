@@ -1,0 +1,17 @@
+﻿@model Taskmaster.ViewModels.ProjectViewModel
+@{
+	Layout = null;
+}
+
+<form class="update-project-form" method="post" asp-action="update-project" asp-controller="project-task">
+	<input type="hidden" asp-for="Id" />
+	<div class="form-group">
+		<label asp-for="Name"></label>
+		<input asp-for="Name" />
+		<span asp-validation-for="Name" class="error project-name-error"></span>
+	</div>
+	<div class="form-buttons">
+		<button type="submit" class="button primary small">Зберегти</button>
+		<button type="button" class="cancel button small">Скасувати</button>
+	</div>
+</form>

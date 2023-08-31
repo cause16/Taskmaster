@@ -1,0 +1,35 @@
+﻿@inject IConfiguration configuration
+@{
+	string companyName = configuration["CompanyName"] ?? "Unknown";
+}
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	@await Html.PartialAsync("_MetaTags")
+	<title>@(ViewBag.Title ?? companyName)</title>
+	@await Html.PartialAsync("_Styles")
+	@RenderSection("Styles", required: false)
+	@await Html.PartialAsync("_NoScripts")
+	<link rel="icon" type="image/x-icon" href="~/images/favicon.ico">
+</head>
+<body class="is-preload">
+	<div id="page-wrapper">
+
+		<!-- Header -->
+		@await Html.PartialAsync("_Header")
+
+		<!-- Main -->
+		@RenderBody()
+
+		<!-- Footer -->
+		@await Html.PartialAsync("_Footer")
+
+	</div>
+
+	<!-- Scripts -->
+	@await Html.PartialAsync("_Scripts")
+	@RenderSection("Scripts", required: false)
+
+</body>
+</html>
